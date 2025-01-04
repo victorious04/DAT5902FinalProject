@@ -1,6 +1,6 @@
 ###importing possibly necessary python libraries###
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import numpy as np
 
 ###Functions that may be used often/speed up process
@@ -20,10 +20,12 @@ def mergeData(dataSet1, dataSet2,mergeCols,type):
 
 #creation of a scatter plot
 def createScatterPlot(dataSet,xdata,ydata,title,xlabel,ylabel):
-    plt.scatter(dataSet[xdata], dataSet[ydata])
+    plt.figure(figsize=(10,6))
+    plt.scatter(dataSet[xdata], dataSet[ydata], alpha=0.6, edgecolor='black')
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
+    plt.grid(True)
     plt.show()
     return
 
@@ -32,7 +34,12 @@ def saveVisual(outputpath):
     plt.savefig(outputpath)
     return
 
+#dropping of unneeded columns in df
 def dropColumns(dataSet, dropCols):
     dataSet = dataSet.drop(columns=dropCols)
     return dataSet
-##END OF FUNCTIONS
+
+#selection of a specific year to focus on
+def yearSelection(dataSet, year):
+    dataSet = dataSet[dataSet['Year'] == year]
+    return dataSet
