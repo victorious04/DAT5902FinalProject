@@ -10,6 +10,9 @@ def importDF(filePath):
     df = pd.read_csv(filePath)
     return df
 
+def dfHead(dataSet):
+    return dataSet.head()
+
 #merges 2 datasets together 
 def mergeData(dataSet1, dataSet2,mergeCols,type):
     merged = dataSet1.merge(dataSet2, on=mergeCols, how=type)
@@ -28,15 +31,8 @@ def createScatterPlot(dataSet,xdata,ydata,title,xlabel,ylabel):
 def saveVisual(outputpath):
     plt.savefig(outputpath)
     return
+
+def dropColumns(dataSet, dropCols):
+    dataSet = dataSet.drop(columns=dropCols)
+    return dataSet
 ##END OF FUNCTIONS
-
-
-#MAIN PROGRAM
-lifeDf = importDF('life-expectancy.csv')
-gdpDF = importDF('gdp-per-capita-worldbank.csv')
-
-#check that file has imported properly and see the layout
-print(lifeDf.head())
-print(gdpDF.head())
-
-
