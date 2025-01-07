@@ -29,13 +29,6 @@ def createScatterPlot(dataSet,xdata,ydata,title,xlabel,ylabel):
     plt.title(title)
     plt.grid(True)
     plt.show()
-
-    saveFig = str(input("Do you wish to save this scatterplot visual? (Y/N)"))
-    if saveFig == 'Y':
-        saveVisual(title)
-    else:
-        print("Visual not saved.")
-    
     return
 
 def regressionAnalysis(dataSet, xdata, ydata):
@@ -66,12 +59,6 @@ def correlationTest(dataSet, xdata, ydata):
         print("Correlation is not statiscally significant.")
     return
 
-#saves visuals to be later used
-def saveVisual(outputpath):
-    plt.savefig(outputpath)
-    print("File saved successfully.")
-    return
-
 #dropping of unneeded columns in df
 def dropColumns(dataSet, dropCols):
     dataSet = dataSet.drop(columns=dropCols)
@@ -90,10 +77,4 @@ def createBarChart(dataSet, xdata, ydata, title, xlabel, ylabel):
     plt.xticks(rotation=45, ha='right')
     plt.grid(True)
     plt.show()
-
-    saveFig = str(input("Do you wish to save this boxplot visual? (Y/N)"))
-    if saveFig == 'Y':
-        saveVisual(title)
-    else:
-        print("Visual not saved.")
     return
