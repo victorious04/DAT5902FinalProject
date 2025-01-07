@@ -29,3 +29,7 @@ life_V_gdpDF = yearSelection(life_V_gdpDF,2016)
 #creation of scatter plot
 createScatterPlot(life_V_gdpDF,'GDP per capita', 'Life Expectancy','GDP vs Life Expectancy',
                   'GDP per Capita', 'Life Expectancy')
+
+regressionAnalysis(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
+
+correlationTest(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
