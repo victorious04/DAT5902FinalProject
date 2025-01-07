@@ -48,5 +48,3 @@ emptyRows['Wrapped Entity'] = emptyRows['Entity'].apply(lambda x: '\n'.join(x.sp
 createBarChart(emptyRows, 'Wrapped Entity', 'Life Expectancy', 
                'Life Expectancy of Various Income Countries', 
                'GDP per Capita', 'Life Expectancy')
-
-print("hello world")
