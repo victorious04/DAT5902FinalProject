@@ -18,7 +18,7 @@ life_V_gdpDF = mergeData(lifeDf,gdpDF,['Entity','Year'],'inner')
 print(dfHead(life_V_gdpDF))
 
 #some columns are unneeded so they can be dropped
-life_V_gdpDF = dropColumns(life_V_gdpDF,['Code_x','Code_y'])
+life_V_gdpDF = dropColumns(life_V_gdpDF,'Code_y')
 print(dfHead(life_V_gdpDF))
 
 ##dataset contains data from various years so have to filter out 
@@ -33,3 +33,13 @@ createScatterPlot(life_V_gdpDF,'GDP per capita', 'Life Expectancy','GDP vs Life 
 regressionAnalysis(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
 
 correlationTest(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
+
+emptyRows = life_V_gdpDF[life_V_gdpDF['Code_x'].isna() | (life_V_gdpDF['Code_x']=='')]
+print(emptyRows)
+
+emptyRows['Wrapped Entity'] = emptyRows['Entity'].apply(lambda x: '\n'.join(x.split()))
+
+
+createBarChart(emptyRows, 'Wrapped Entity', 'Life Expectancy', 
+               'Life Expectancy of Various Income Countries', 
+               'GDP per Capita', 'Life Expectancy')

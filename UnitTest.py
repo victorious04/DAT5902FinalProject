@@ -5,6 +5,17 @@ import unittest
 import pandas as pd
 import matplotlib as plt
 import os
+from DAT5902Functions import (
+    importDF,
+    dfHead,
+    mergeData,
+    createScatterPlot,
+    regressionAnalysis,
+    correlationTest,
+    dropColumns,
+    yearSelection,
+    createBarChart
+)
 
 '''
 for this visualisation, the following functions for continuos testing 
