@@ -30,16 +30,21 @@ life_V_gdpDF = yearSelection(life_V_gdpDF,2016)
 createScatterPlot(life_V_gdpDF,'GDP per capita', 'Life Expectancy','GDP vs Life Expectancy',
                   'GDP per Capita', 'Life Expectancy')
 
+#regression analysis which calculates slope, intercept and r^2(coefficient of determination)
 regressionAnalysis(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
 
+#correlation testing for correlation and pvalue and comparison
 correlationTest(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
 
+#countries grouped based on income had no code so by filtering it out they can be found
 emptyRows = life_V_gdpDF[life_V_gdpDF['Code_x'].isna() | (life_V_gdpDF['Code_x']=='')]
 print(emptyRows)
 
+#making it so x-axis labels wrap around and don't run into each other
 emptyRows['Wrapped Entity'] = emptyRows['Entity'].apply(lambda x: '\n'.join(x.split()))
 
 
+#creation of bar chart grouped by income
 createBarChart(emptyRows, 'Wrapped Entity', 'Life Expectancy', 
                'Life Expectancy of Various Income Countries', 
                'GDP per Capita', 'Life Expectancy')
