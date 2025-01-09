@@ -3,6 +3,7 @@ import unittest
 import pandas as pd
 import matplotlib as plt
 import os
+import numpy as np
 from unittest.mock import patch
 from DAT5902Functions import (
     importDF,
@@ -100,9 +101,10 @@ class DataAnalysisTestFunctions(unittest.TestCase):
     ##8. testing scatter plot creation
     def test_createScatterPlot(self):
         testData = pd.DataFrame({'X': [1, 2, 3], 'Y': [4, 5, 6]})
+        yPred = np.array([2, 4, 6])
         try:
             createScatterPlot(testData, 'X', 'Y', 'Test Scatter Plot', 
-                          'X-Axis', 'Y-Axis')
+                          'X-Axis', 'Y-Axis', yPred)
         except Exception as e:
             self.fail(f"createtScatterPlot raised an exception: {e}")
         

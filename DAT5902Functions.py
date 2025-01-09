@@ -25,13 +25,18 @@ def mergeData(dataSet1, dataSet2,mergeCols,type):
 
 
 ##4. creation of a scatter plot
-def createScatterPlot(dataSet,xdata,ydata,title,xlabel,ylabel):
+def createScatterPlot(dataSet,xdata,ydata,title,xlabel,ylabel, yPred):
     plt.figure(figsize=(10,6))
-    plt.scatter(dataSet[xdata], dataSet[ydata], alpha=0.6, edgecolor='black')
+    plt.scatter(dataSet[xdata], dataSet[ydata], alpha=0.6, edgecolor='black', label='Country')
+
+    #regression line plotting on scatter
+    plt.plot(dataSet[xdata], yPred, color='red', label='Regression Line')
+
     #labelling of scatter
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
+    plt.legend()
     plt.grid(True)
     plt.show()
     return
@@ -43,6 +48,8 @@ def regressionAnalysis(dataSet, xdata, ydata):
     Y = dataSet[ydata].values
     model = LinearRegression()
     model.fit(X, Y)
+    yPred = model.predict(X)
+
     slope = model.coef_[0]
     intercept = model.intercept_
     rSquared = model.score(X, Y)
@@ -50,7 +57,8 @@ def regressionAnalysis(dataSet, xdata, ydata):
     print(f"Regression Coefficient (Slope): {slope}")
     print(f"Intercept: {intercept}")
     print(f"R^2 Value: {rSquared}")
-    return 
+
+    return yPred
 
 
 ##6. calculation of correlation analytics factors

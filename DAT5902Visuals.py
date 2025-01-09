@@ -26,12 +26,12 @@ print(dfHead(life_V_gdpDF))
 # from different years depending on country so 2016 is recent enough to have full data
 life_V_gdpDF = yearSelection(life_V_gdpDF,2016)
 
+#regression analysis which calculates slope, intercept and r^2(coefficient of determination)
+yPred = regressionAnalysis(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
+
 #creation of scatter plot
 createScatterPlot(life_V_gdpDF,'GDP per capita', 'Life Expectancy','GDP vs Life Expectancy',
-                  'GDP per Capita', 'Life Expectancy')
-
-#regression analysis which calculates slope, intercept and r^2(coefficient of determination)
-regressionAnalysis(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
+                  'GDP per Capita', 'Life Expectancy', yPred)
 
 #correlation testing for correlation and pvalue and comparison
 correlationTest(life_V_gdpDF, 'GDP per capita', 'Life Expectancy')
