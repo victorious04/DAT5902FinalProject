@@ -8,4 +8,5 @@ Key questions addressed include:
 1. Is there a relationship between GDP per Capita and life expectancy?
 2. How does the relationship vary across low-, middle-, and high-income countries?
 3. How does this differ across continents?
+   
 The analysis utilizes Python for data cleaning, visualization, and statistical testing, including scatter plots, bar charts, correlation analysis, and linear regression.
