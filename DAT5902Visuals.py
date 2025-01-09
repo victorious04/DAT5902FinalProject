@@ -48,3 +48,13 @@ emptyRows['Wrapped Entity'] = emptyRows['Entity'].apply(lambda x: '\n'.join(x.sp
 createBarChart(emptyRows, 'Wrapped Entity', 'Life Expectancy', 
                'Life Expectancy of Various Income Countries', 
                'GDP per Capita', 'Life Expectancy')
+
+#selection of continents
+continentDF = lifeDf[(lifeDf['Entity'] == 'Africa') | (lifeDf['Entity'] == 'Asia') | (lifeDf['Entity'] == 'Americas')
+                | (lifeDf['Entity'] == 'Oceania') | (lifeDf['Entity'] == 'Europe') | (lifeDf['Entity'] == 'World')]
+#selecting the year 2016 for continents
+continentDF = yearSelection(continentDF, 2016)
+#creation of barchart
+createBarChart(continentDF, 'Entity', 'Life Expectancy', 
+               'Life Expectancy by Continent', 'Continent', 
+               'Life Expectancy')
