@@ -47,7 +47,7 @@ emptyRows['Wrapped Entity'] = emptyRows['Entity'].apply(lambda x: '\n'.join(x.sp
 #creation of bar chart grouped by income
 createBarChart(emptyRows, 'Wrapped Entity', 'Life Expectancy', 
                'Life Expectancy of Various Income Countries', 
-               'GDP per Capita', 'Life Expectancy')
+               'Income Range', 'Life Expectancy')
 
 #selection of continents
 continentDF = lifeDf[(lifeDf['Entity'] == 'Africa') | (lifeDf['Entity'] == 'Asia') | (lifeDf['Entity'] == 'Americas')
